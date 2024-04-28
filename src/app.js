@@ -1,13 +1,13 @@
 import express from "express";
 
-import routes from "./routes.js";
+import routesConfig from "./routes/index.js";
 import connection from './config/connection.js';
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(routes);
+app.use(routesConfig);
 
 connection.sync().then(() => console.log("Database connected")).catch((err) => console.log(err));
 

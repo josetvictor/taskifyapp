@@ -1,4 +1,4 @@
-import UserModel from "../Model/users.js";
+import UserModel from "../schemas/users.js";
 
 function findAll(req, res) {
   UserModel.findAll().then((result) => res.json(result));

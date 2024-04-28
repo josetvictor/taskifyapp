@@ -1,4 +1,4 @@
-import TaskModel from "../Model/tasks.js";
+import TaskModel from "../schemas/tasks.js";
 
 function findAll(req, res) {
   TaskModel.findAll().then((result) => res.json(result));

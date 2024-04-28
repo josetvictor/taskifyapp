@@ -1,29 +1,21 @@
 import { Sequelize } from "sequelize";
 import connection from "../config/connection.js";
 
-const Task = connection.define("tasks", {
+const UserSchema = connection.define("users", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
   },
-  user_id: {
-    type: Sequelize.INTEGER,
-    allowNull: false
-  },
-  title: {
+  username: {
     type: Sequelize.STRING,
     allowNull: false
   },
-  description: {
+  password: {
     type: Sequelize.STRING,
-    allowNull: false
-  },
-  completed: {
-    type: Sequelize.BOOLEAN,
     allowNull: false
   }
 });
 
-export default Task;
+export default UserSchema;
