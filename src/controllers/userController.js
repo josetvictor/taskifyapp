@@ -1,3 +1,4 @@
+import "dotenv/config";
 import UserSchema from "../schemas/users.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -33,7 +34,6 @@ async function registerUser(req, res) {
     const { username, password } = req.body;
 
     const userExist = await UserSchema.findOne({ where: { username } });
-    console.log(userExist)
 
     if(userExist) return res.status(400).json({ message: "User already exist" });
 
@@ -45,7 +45,6 @@ async function registerUser(req, res) {
     return res.status(201).json({ message: "User created successfully" });
     
   } catch (error) {
-    console.log(error)
     return res.status(500).json({ message: error.message });
   }
 }
