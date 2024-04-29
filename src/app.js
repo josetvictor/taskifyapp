@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from "express";
+import cors from "cors";
 
 import routesConfig from "./routes/index.js";
 import connection from './config/connection.js';
@@ -7,6 +8,7 @@ import connection from './config/connection.js';
 const app = express();
 const port = process.env.PORT_SERVER_APP;
 
+app.use(cors());
 app.use(express.json());
 app.use(routesConfig);
 
